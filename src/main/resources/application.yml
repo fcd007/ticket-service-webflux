@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: tickedb
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/tickedb
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:1234}
+
+  flyway:
+    url: jdbc:postgresql://localhost:5432/tickedb
+    user: ${USER:postgres}
+    password: ${PASSWORD:1234}
+
+logging:
+  level:
+    root: INFO
+    # Logs SQL statements and parameter bindings
+    org.springframework.r2dbc.core.DatabaseClient: DEBUG
+    # Logs low-level reactive client communication
+    io.r2dbc: DEBUG
+
+DEEPLAUTH_KEY: ${DEEPLAUTH_KEY}
+BASE_URI: ${BASE_URI}
